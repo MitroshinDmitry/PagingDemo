@@ -1,10 +1,12 @@
-package com.example.mitroshin.pagingdemo;
+package com.example.mitroshin.pagingdemo.ui.splash;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.mitroshin.pagingdemo.ui.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
