@@ -28,6 +28,8 @@ android {
 def support = "27.1.1"
 def retrofit = "2.3.0"
 def constraint = "1.1.0"
+def arch = "1.1.1"
+def picasso = "2.71828"
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -42,4 +44,8 @@ dependencies {
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    implementation "android.arch.lifecycle:extensions:$arch"
+
+    implementation "com.squareup.picasso:picasso:$picasso"
 }

@@ -3,6 +3,7 @@ package com.example.mitroshin.pagingdemo.ui.adapters;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.example.mitroshin.pagingdemo.databinding.ItemPhotoListBinding;
@@ -10,7 +11,15 @@ import com.example.mitroshin.pagingdemo.model.entity.Photo;
 
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
+
 public class PhotoListAdapter extends RecyclerView.Adapter<PhotoListAdapter.ViewHolder> {
+
+    public static final String TAG = PhotoListAdapter.class.getSimpleName();
+
+    public interface ItemListener {
+        void onPhotoClick(Photo photo);
+    }
 
     private final Fragment fragment;
     private List<Photo> photoList;
@@ -65,7 +74,11 @@ public class PhotoListAdapter extends RecyclerView.Adapter<PhotoListAdapter.View
         }
 
         public void onPhotoClick() {
-            // TODO ОБработка нажатия на фотографию
+            if (fragment instanceof ItemListener) {
+                ((ItemListener)fragment).onPhotoClick(binding.getPhoto());
+            } else {
+                Log.i(TAG, "onPhotoClick: You need to implement listener in your fragment");
+            }
         }
     }
 }
