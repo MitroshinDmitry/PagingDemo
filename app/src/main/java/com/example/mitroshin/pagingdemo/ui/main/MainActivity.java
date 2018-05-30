@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.mitroshin.pagingdemo.ui.main.details.PhotoDetailsFragment;
 import com.example.mitroshin.pagingdemo.ui.main.photoList.PhotoListFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PhotoListFragment.Contract {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
@@ -30,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private void showPhotoList() {
         getSupportFragmentManager().beginTransaction()
                 .replace(CONTENT_ID, new PhotoListFragment())
+                .commit();
+    }
+
+    @Override
+    public void showPhotoDetails(String photoId) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(CONTENT_ID, PhotoDetailsFragment.newInstance(photoId))
+                .addToBackStack(null)
                 .commit();
     }
 }

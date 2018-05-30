@@ -12,7 +12,7 @@ import retrofit2.Response;
 public class PhotoRepository {
 
     public interface Contract {
-        void onPhotoLoaded(@NonNull Photo photoList);
+        void onPhotoLoaded(@NonNull Photo photo);
         void onPhotoNotAvailable();
     }
 

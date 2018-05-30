@@ -6,12 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.mitroshin.pagingdemo.databinding.FragmentPhotoListBinding;
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
@@ -23,11 +20,13 @@ public class PhotoListFragment extends Fragment implements PhotoListAdapter.Item
 
     public static final String TAG = PhotoListFragment.class.getSimpleName();
 
+    public interface Contract {
+        void showPhotoDetails(String photoId);
+    }
+
     private FragmentPhotoListBinding binding;
     private PhotoListViewModel viewModel;
     private PhotoListAdapter listAdapter;
-    private final RecyclerView.LayoutManager layoutManager =
-            new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,7 +54,7 @@ public class PhotoListFragment extends Fragment implements PhotoListAdapter.Item
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
 
-        binding.photoList.setLayoutManager(layoutManager);
+        binding.photoList.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.photoList.setAdapter(listAdapter);
     }
 
@@ -65,6 +64,8 @@ public class PhotoListFragment extends Fragment implements PhotoListAdapter.Item
 
     @Override
     public void onPhotoClick(Photo photo) {
-        Toast.makeText(getActivity(), "Click on:" + photo.id, Toast.LENGTH_SHORT).show();
+        if (getActivity() != null && getActivity() instanceof Contract) {
+            ((Contract)getActivity()).showPhotoDetails(photo.id);
+        }
     }
 }
