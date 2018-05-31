@@ -8,7 +8,12 @@
 
         <variable
             name="listener"
-            type="com.example.mitroshin.pagingdemo.ui.adapters.photoList.LoadingStateItemListener">
+            type="com.example.mitroshin.pagingdemo.ui.adapters.photoList.RetryListener">
+        </variable>
+
+        <variable
+            name="viewType"
+            type="com.example.mitroshin.pagingdemo.ui.LoadingViewType">
         </variable>
     </data>
 

@@ -14,10 +14,12 @@ import com.example.mitroshin.pagingdemo.databinding.FragmentPhotoListBinding;
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
 import com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListAdapter;
 import com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListItemListener;
+import com.example.mitroshin.pagingdemo.ui.adapters.photoList.RetryListener;
 
 import java.util.List;
 
-public class PhotoListFragment extends Fragment implements PhotoListItemListener {
+public class PhotoListFragment extends Fragment
+        implements PhotoListItemListener, RetryListener {
 
     public static final String TAG = PhotoListFragment.class.getSimpleName();
 
@@ -33,7 +35,7 @@ public class PhotoListFragment extends Fragment implements PhotoListItemListener
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(PhotoListViewModel.class);
-        listAdapter = new PhotoListAdapter(getLayoutInflater(), this);
+        listAdapter = new PhotoListAdapter(getLayoutInflater(), this, this);
     }
 
     @Nullable
@@ -60,7 +62,7 @@ public class PhotoListFragment extends Fragment implements PhotoListItemListener
     }
 
     private void renderPhotoList(List<Photo> photoList) {
-        listAdapter.setPhotoList(photoList);
+//        listAdapter.setPhotoList(photoList);
     }
 
     @Override
@@ -68,5 +70,10 @@ public class PhotoListFragment extends Fragment implements PhotoListItemListener
         if (getActivity() != null && getActivity() instanceof Contract) {
             ((Contract)getActivity()).showPhotoDetails(photo.id);
         }
+    }
+
+    @Override
+    public void onRetryClick() {
+
     }
 }
