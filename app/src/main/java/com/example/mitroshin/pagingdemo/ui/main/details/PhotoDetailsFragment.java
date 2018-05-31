@@ -57,6 +57,12 @@ public class PhotoDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
+
+        binding.retryButton.setOnClickListener(this::handleRetryButtonClick);
+    }
+
+    private void handleRetryButtonClick(View view) {
+        viewModel.reload();
     }
 
     private String getStringArgument(String argumentName) {
