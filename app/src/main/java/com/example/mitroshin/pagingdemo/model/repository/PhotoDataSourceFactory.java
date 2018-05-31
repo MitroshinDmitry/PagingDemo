@@ -4,10 +4,10 @@ import android.arch.paging.DataSource;
 
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
 
-public class PhotoDataSourceFactory extends DataSource.Factory<String, Photo> {
+public class PhotoDataSourceFactory extends DataSource.Factory<Integer, Photo> {
 
     @Override
-    public DataSource<String, Photo> create() {
+    public DataSource<Integer, Photo> create() {
         return new PhotoDataSource();
     }
 }

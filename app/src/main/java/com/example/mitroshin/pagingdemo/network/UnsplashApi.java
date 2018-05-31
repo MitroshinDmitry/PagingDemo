@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 public interface UnsplashApi {
 
     @GET("/photos")
-    Call<List<Photo>> photos(@Query("page") int pageNumber);
+    Call<List<Photo>> photos(@Query("page") int page, @Query("per_page") int perPage);
 
     @GET("/photos/{id}")
     Call<Photo> photo(@Path("id") String id);

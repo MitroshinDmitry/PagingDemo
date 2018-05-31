@@ -10,7 +10,7 @@ import com.example.mitroshin.pagingdemo.model.repository.PhotoDataSourceFactory;
 
 public class PhotoListViewModel extends ViewModel {
 
-    private static final int PHOTOS_ON_PAGE = 10;
+    private static final int PHOTOS_ON_PAGE = 5;
 
     public final LiveData<PagedList<Photo>> photoList;
     private final PhotoDataSourceFactory dataSourceFactory;
