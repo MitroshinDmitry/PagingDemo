@@ -18,7 +18,7 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoListFra
         super.onCreate(savedInstanceState);
 
         if (isContentEmpty()) {
-            showPhotoList();
+            showPhotoListFragment();
         }
     }
 
@@ -28,7 +28,7 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoListFra
         return currentFragment == null;
     }
 
-    private void showPhotoList() {
+    private void showPhotoListFragment() {
         getSupportFragmentManager().beginTransaction()
                 .replace(CONTENT_ID, new PhotoListFragment())
                 .commit();

@@ -12,6 +12,7 @@
 
     <style name="PhotoDetailsTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@color/colorBlack</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>
