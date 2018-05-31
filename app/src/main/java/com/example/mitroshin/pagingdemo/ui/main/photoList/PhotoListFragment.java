@@ -33,7 +33,7 @@ public class PhotoListFragment extends Fragment implements PhotoListItemListener
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(PhotoListViewModel.class);
-        listAdapter = new PhotoListAdapter(this, this);
+        listAdapter = new PhotoListAdapter(getLayoutInflater(), this);
     }
 
     @Nullable

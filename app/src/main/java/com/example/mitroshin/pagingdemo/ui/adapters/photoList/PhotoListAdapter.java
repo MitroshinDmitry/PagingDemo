@@ -1,8 +1,8 @@
 package com.example.mitroshin.pagingdemo.ui.adapters.photoList;
 
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.mitroshin.pagingdemo.databinding.ItemPhotoListBinding;
@@ -15,11 +15,11 @@ public class PhotoListAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
     public static final String TAG = PhotoListAdapter.class.getSimpleName();
 
     private final PhotoListItemListener listener;
-    private final Fragment fragment;
+    private final LayoutInflater layoutInflater;
     private List<Photo> photoList;
 
-    public PhotoListAdapter(Fragment fragment, PhotoListItemListener listener) {
-        this.fragment = fragment;
+    public PhotoListAdapter(LayoutInflater layoutInflater, PhotoListItemListener listener) {
+        this.layoutInflater = layoutInflater;
         this.listener = listener;
     }
 
@@ -33,7 +33,7 @@ public class PhotoListAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
     @Override
     public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final ItemPhotoListBinding binding = ItemPhotoListBinding.inflate(
-                fragment.getLayoutInflater(),
+                layoutInflater,
                 parent,
                 false);
         return new PhotoViewHolder(binding, listener);
