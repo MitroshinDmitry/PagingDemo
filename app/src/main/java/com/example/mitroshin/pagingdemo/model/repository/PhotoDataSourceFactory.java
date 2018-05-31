@@ -6,14 +6,8 @@ import com.example.mitroshin.pagingdemo.model.entity.Photo;
 
 public class PhotoDataSourceFactory extends DataSource.Factory<String, Photo> {
 
-    private PhotoDataSource.Contract contract;
-
-    public PhotoDataSourceFactory(PhotoDataSource.Contract contract) {
-        this.contract = contract;
-    }
-
     @Override
     public DataSource<String, Photo> create() {
-        return new PhotoDataSource(contract);
+        return new PhotoDataSource();
     }
 }

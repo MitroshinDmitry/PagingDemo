@@ -15,17 +15,6 @@ import retrofit2.Response;
 
 public class PhotoDataSource extends ItemKeyedDataSource<String, Photo> {
 
-    public interface Contract {
-        void onPhotoListLoaded(List<Photo> photoList);
-        void onPhotoListNotAvailable();
-    }
-
-    private Contract contract;
-
-    PhotoDataSource(Contract contract) {
-        this.contract = contract;
-    }
-
     @Override
     public void loadInitial(@NonNull LoadInitialParams<String> params,
                             @NonNull LoadInitialCallback<Photo> callback) {
@@ -35,10 +24,8 @@ public class PhotoDataSource extends ItemKeyedDataSource<String, Photo> {
                                    @NonNull Response<List<Photo>> response) {
                 if (response.body() != null) {
                     callback.onResult(response.body());
-                    contract.onPhotoListLoaded(response.body());
                 } else {
                     callback.onResult(Collections.emptyList());
-                    contract.onPhotoListNotAvailable();
                 }
             }
 
@@ -46,11 +33,11 @@ public class PhotoDataSource extends ItemKeyedDataSource<String, Photo> {
             public void onFailure(@NonNull Call<List<Photo>> call,
                                   @NonNull Throwable t) {
                 callback.onResult(Collections.emptyList());
-                contract.onPhotoListNotAvailable();
             }
         });
     }
 
+    // TODO Исправить API и методы загрузки. Получать номера страниц из параметров.
     @Override
     public void loadAfter(@NonNull LoadParams<String> params,
                           @NonNull LoadCallback<Photo> callback) {
@@ -60,10 +47,8 @@ public class PhotoDataSource extends ItemKeyedDataSource<String, Photo> {
                                    @NonNull Response<List<Photo>> response) {
                 if (response.body() != null) {
                     callback.onResult(response.body());
-                    contract.onPhotoListLoaded(response.body());
                 } else {
                     callback.onResult(Collections.emptyList());
-                    contract.onPhotoListNotAvailable();
                 }
             }
 
@@ -71,7 +56,6 @@ public class PhotoDataSource extends ItemKeyedDataSource<String, Photo> {
             public void onFailure(@NonNull Call<List<Photo>> call,
                                   @NonNull Throwable t) {
                 callback.onResult(Collections.emptyList());
-                contract.onPhotoListNotAvailable();
             }
         });
     }
