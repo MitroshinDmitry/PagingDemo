@@ -22,7 +22,7 @@ public class PhotoDataSource extends ItemKeyedDataSource<String, Photo> {
 
     private Contract contract;
 
-    public PhotoDataSource(Contract contract) {
+    PhotoDataSource(Contract contract) {
         this.contract = contract;
     }
 

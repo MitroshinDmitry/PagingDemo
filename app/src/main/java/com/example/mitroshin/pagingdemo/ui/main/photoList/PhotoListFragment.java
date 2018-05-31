@@ -1,6 +1,7 @@
 package com.example.mitroshin.pagingdemo.ui.main.photoList;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.arch.paging.PagedList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,8 +16,6 @@ import com.example.mitroshin.pagingdemo.model.entity.Photo;
 import com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListAdapter;
 import com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListItemListener;
 import com.example.mitroshin.pagingdemo.ui.adapters.photoList.RetryListener;
-
-import java.util.List;
 
 public class PhotoListFragment extends Fragment
         implements PhotoListItemListener, RetryListener {
@@ -61,7 +60,8 @@ public class PhotoListFragment extends Fragment
         binding.photoList.setAdapter(listAdapter);
     }
 
-    private void renderPhotoList(List<Photo> photoList) {
+    private void renderPhotoList(PagedList<Photo> photoList) {
+        listAdapter.submitList(photoList);
 //        listAdapter.setPhotoList(photoList);
     }
 

@@ -42,6 +42,8 @@ public class PhotoListAdapter extends PagedListAdapter<Photo, RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType) {
+            // TODO Придумай, как бы завязать классы биндингов на соответствующие макеты.
+            // Как не странно, просто достать из них ID макета - нельзя.
             case REGULAR_ITEM_LAYOUT: {
                 final ItemPhotoListBinding binding = ItemPhotoListBinding.inflate(
                         layoutInflater,
@@ -87,9 +89,9 @@ public class PhotoListAdapter extends PagedListAdapter<Photo, RecyclerView.ViewH
     @Override
     public int getItemViewType(int position) {
         if (hasExtraRow() && position == getItemCount() - 1) {
-            return REGULAR_ITEM_LAYOUT;
-        } else {
             return LOADING_STATE_LAYOUT;
+        } else {
+            return REGULAR_ITEM_LAYOUT;
         }
     }
 
