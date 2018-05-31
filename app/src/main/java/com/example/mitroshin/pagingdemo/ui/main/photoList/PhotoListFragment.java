@@ -12,11 +12,12 @@ import android.view.ViewGroup;
 
 import com.example.mitroshin.pagingdemo.databinding.FragmentPhotoListBinding;
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
-import com.example.mitroshin.pagingdemo.ui.adapters.PhotoListAdapter;
+import com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListAdapter;
+import com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListItemListener;
 
 import java.util.List;
 
-public class PhotoListFragment extends Fragment implements PhotoListAdapter.ItemListener {
+public class PhotoListFragment extends Fragment implements PhotoListItemListener {
 
     public static final String TAG = PhotoListFragment.class.getSimpleName();
 
@@ -32,7 +33,7 @@ public class PhotoListFragment extends Fragment implements PhotoListAdapter.Item
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(PhotoListViewModel.class);
-        listAdapter = new PhotoListAdapter(this);
+        listAdapter = new PhotoListAdapter(this, this);
     }
 
     @Nullable

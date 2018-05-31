@@ -12,8 +12,8 @@
         </variable>
 
         <variable
-            name="holder"
-            type="com.example.mitroshin.pagingdemo.ui.adapters.PhotoListAdapter.ViewHolder">
+            name="listener"
+            type="com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListItemListener">
         </variable>
     </data>
 
@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            android:onClick="@{() -> holder.onPhotoClick()}"
+            android:onClick="@{() -> listener.onPhotoClick(photo)}"
             app:imageUrl="@{photo.urls.regular}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
