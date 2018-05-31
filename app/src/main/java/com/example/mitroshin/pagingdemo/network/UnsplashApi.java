@@ -7,11 +7,12 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface UnsplashApi {
 
     @GET("/photos")
-    Call<List<Photo>> photos();
+    Call<List<Photo>> photos(@Query("page") int pageNumber);
 
     @GET("/photos/{id}")
     Call<Photo> photo(@Path("id") String id);
