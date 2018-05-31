@@ -3,4 +3,6 @@
 
     <string name="error_of_data_loading">Произошла ошибка. Проверьте подключение к сети.</string>
     <string name="text_retry">Повторить</string>
+
+    <string name="label_photo_list">Unsplash</string>
 </resources>

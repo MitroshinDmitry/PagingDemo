@@ -25,10 +25,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:label="@string/label_photo_list"
             android:name=".ui.main.photoList.PhotoListActivity">
         </activity>
         <activity
-            android:name=".ui.main.details.PhotoDetailsActivity">
+            android:name=".ui.main.details.PhotoDetailsActivity"
+            android:theme="@style/PhotoDetailsTheme"
+            android:parentActivityName=".ui.main.photoList.PhotoListActivity">
         </activity>
     </application>
 

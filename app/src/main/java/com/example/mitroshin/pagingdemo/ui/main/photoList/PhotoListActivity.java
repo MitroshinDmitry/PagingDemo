@@ -42,6 +42,5 @@ public class PhotoListActivity extends AppCompatActivity implements PhotoListFra
 
     private void launchActivity(Intent intent) {
         startActivity(intent);
-        finish();
     }
 }
