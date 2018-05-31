@@ -1,15 +1,15 @@
-package com.example.mitroshin.pagingdemo.ui.main;
+package com.example.mitroshin.pagingdemo.ui.main.photoList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.mitroshin.pagingdemo.ui.main.details.PhotoDetailsFragment;
-import com.example.mitroshin.pagingdemo.ui.main.photoList.PhotoListFragment;
+import com.example.mitroshin.pagingdemo.ui.main.details.PhotoDetailsActivity;
 
-public class MainActivity extends AppCompatActivity implements PhotoListFragment.Contract {
+public class PhotoListActivity extends AppCompatActivity implements PhotoListFragment.Contract {
 
-    public static final String TAG = MainActivity.class.getSimpleName();
+    public static final String TAG = PhotoListActivity.class.getSimpleName();
 
     private static final int CONTENT_ID = android.R.id.content;
 
@@ -36,9 +36,12 @@ public class MainActivity extends AppCompatActivity implements PhotoListFragment
 
     @Override
     public void showPhotoDetails(String photoId) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(CONTENT_ID, PhotoDetailsFragment.newInstance(photoId))
-                .addToBackStack(null)
-                .commit();
+        Intent photoDetailsIntent = PhotoDetailsActivity.newIntent(this, photoId);
+        launchActivity(photoDetailsIntent);
+    }
+
+    private void launchActivity(Intent intent) {
+        startActivity(intent);
+        finish();
     }
 }

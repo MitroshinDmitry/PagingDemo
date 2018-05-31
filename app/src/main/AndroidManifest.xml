@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action
@@ -24,7 +25,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.main.MainActivity">
+            android:name=".ui.main.photoList.PhotoListActivity">
+        </activity>
+        <activity
+            android:name=".ui.main.details.PhotoDetailsActivity">
         </activity>
     </application>
 
