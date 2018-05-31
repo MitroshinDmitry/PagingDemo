@@ -55,22 +55,21 @@
             android:textColor="@color/colorTextIcons"
             android:textSize="18sp"
             android:visibility="@{viewModel.isError ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/retryButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/photo" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/retryButton"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:text="@string/text_retry"
             android:textColor="@color/colorTextIcons"
             android:visibility="@{viewModel.isError ? View.VISIBLE : View.GONE}"
-            app:layout_constraintBottom_toTopOf="@+id/photo"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/errorDataLoadingMessage"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/errorDataLoadingMessage"
