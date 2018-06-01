@@ -31,8 +31,14 @@ public class Photo {
     @SerializedName("description")
     public final String description;
 
+    @SerializedName("user")
+    public final User user;
+
     @SerializedName("urls")
     public final Urls urls;
+
+    @SerializedName("links")
+    public final Links links;
 
     public Photo(String id,
                  String createdAt,
@@ -43,7 +49,9 @@ public class Photo {
                  int likes,
                  boolean likedByUser,
                  String description,
-                 Urls urls) {
+                 User user,
+                 Urls urls,
+                 Links links) {
         this.id = id;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -53,7 +61,9 @@ public class Photo {
         this.likes = likes;
         this.likedByUser = likedByUser;
         this.description = description;
+        this.user = user;
         this.urls = urls;
+        this.links = links;
     }
 
     @Override
@@ -68,7 +78,9 @@ public class Photo {
                 ", likes=" + likes +
                 ", likedByUser=" + likedByUser +
                 ", description='" + description + '\'' +
+                ", user=" + user +
                 ", urls=" + urls +
+                ", links=" + links +
                 '}';
     }
 }
