@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
 import com.example.mitroshin.pagingdemo.model.repository.PhotoRepository;
-import com.example.mitroshin.pagingdemo.ui.LoadingViewType;
+import com.example.mitroshin.pagingdemo.network.LoadingState;
 
 public class PhotoDetailsViewModel extends ViewModel implements PhotoRepository.Contract {
 
@@ -21,22 +21,22 @@ public class PhotoDetailsViewModel extends ViewModel implements PhotoRepository.
     }
 
     public void reload() {
-        setupViewType(LoadingViewType.LOADING);
+        setupViewType(LoadingState.LOADING);
         PhotoRepository.get().getPhoto(photoId.getValue(), this);
     }
 
     @Override
     public void onPhotoLoaded(@NonNull Photo photo) {
-        setupViewType(LoadingViewType.CONTENT);
+        setupViewType(LoadingState.CONTENT);
         this.photo.setValue(photo);
     }
 
     @Override
     public void onPhotoNotAvailable() {
-        setupViewType(LoadingViewType.ERROR);
+        setupViewType(LoadingState.ERROR);
     }
 
-    private void setupViewType(LoadingViewType type) {
+    private void setupViewType(LoadingState type) {
         isLoading.setValue(type.isLoading);
         isError.setValue(type.isError);
     }

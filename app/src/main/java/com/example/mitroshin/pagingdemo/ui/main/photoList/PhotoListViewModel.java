@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
 
+import com.example.mitroshin.pagingdemo.app.AppExecutor;
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
 import com.example.mitroshin.pagingdemo.model.repository.PhotoDataSourceFactory;
 
@@ -22,6 +23,8 @@ public class PhotoListViewModel extends ViewModel {
                 .setInitialLoadSizeHint(PHOTOS_ON_PAGE)
                 .setEnablePlaceholders(false)
                 .build();
-        photoList = new LivePagedListBuilder<>(dataSourceFactory, config).build();
+        photoList = new LivePagedListBuilder<>(dataSourceFactory, config)
+                .setFetchExecutor(AppExecutor.get().networkIO())
+                .build();
     }
 }

@@ -13,7 +13,7 @@
 
         <variable
             name="viewType"
-            type="com.example.mitroshin.pagingdemo.ui.LoadingViewType">
+            type="com.example.mitroshin.pagingdemo.network.LoadingState">
         </variable>
     </data>
 

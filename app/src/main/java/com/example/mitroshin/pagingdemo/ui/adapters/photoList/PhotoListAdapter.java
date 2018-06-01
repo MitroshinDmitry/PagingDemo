@@ -11,7 +11,7 @@ import com.example.mitroshin.pagingdemo.R;
 import com.example.mitroshin.pagingdemo.databinding.ItemLoadingStateBinding;
 import com.example.mitroshin.pagingdemo.databinding.ItemPhotoListBinding;
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
-import com.example.mitroshin.pagingdemo.ui.LoadingViewType;
+import com.example.mitroshin.pagingdemo.network.LoadingState;
 
 import java.util.Objects;
 
@@ -27,7 +27,7 @@ public class PhotoListAdapter extends PagedListAdapter<Photo, RecyclerView.ViewH
     private final LayoutInflater layoutInflater;
 
     // TODO Описать сеттер
-    private LoadingViewType loadingViewType;
+    private LoadingState loadingState;
 
     public PhotoListAdapter(LayoutInflater layoutInflater,
                             PhotoListItemListener listener,
@@ -70,7 +70,7 @@ public class PhotoListAdapter extends PagedListAdapter<Photo, RecyclerView.ViewH
                 ((PhotoViewHolder)holder).bind(getItem(position));
                 break;
             case LOADING_STATE_LAYOUT:
-                ((LoadingStateViewHolder)holder).bind(loadingViewType);
+                ((LoadingStateViewHolder)holder).bind(loadingState);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown layout resource");
@@ -96,7 +96,7 @@ public class PhotoListAdapter extends PagedListAdapter<Photo, RecyclerView.ViewH
     }
 
     private boolean hasExtraRow() {
-        return loadingViewType != null && loadingViewType != LoadingViewType.CONTENT;
+        return loadingState != null && loadingState != LoadingState.CONTENT;
     }
 
     private static DiffUtil.ItemCallback<Photo> PhotoDiffCallback =

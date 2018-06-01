@@ -1,6 +1,6 @@
-package com.example.mitroshin.pagingdemo.ui;
+package com.example.mitroshin.pagingdemo.network;
 
-public enum LoadingViewType {
+public enum LoadingState {
     LOADING(true, false),
     CONTENT(false, false),
     ERROR(false, true);
@@ -8,7 +8,7 @@ public enum LoadingViewType {
     public final boolean isLoading;
     public final boolean isError;
 
-    LoadingViewType(boolean isLoading, boolean isError) {
+    LoadingState(boolean isLoading, boolean isError) {
         this.isLoading = isLoading;
         this.isError = isError;
     }

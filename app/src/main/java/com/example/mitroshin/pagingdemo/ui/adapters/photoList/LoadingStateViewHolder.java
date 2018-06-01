@@ -3,7 +3,7 @@ package com.example.mitroshin.pagingdemo.ui.adapters.photoList;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.mitroshin.pagingdemo.databinding.ItemLoadingStateBinding;
-import com.example.mitroshin.pagingdemo.ui.LoadingViewType;
+import com.example.mitroshin.pagingdemo.network.LoadingState;
 
 public class LoadingStateViewHolder extends RecyclerView.ViewHolder {
 
@@ -16,8 +16,8 @@ public class LoadingStateViewHolder extends RecyclerView.ViewHolder {
         this.listener = listener;
     }
 
-    public void bind(LoadingViewType loadingViewType) {
-        binding.setViewType(loadingViewType);
+    public void bind(LoadingState loadingState) {
+        binding.setViewType(loadingState);
         binding.setListener(listener);
         binding.executePendingBindings();
     }
