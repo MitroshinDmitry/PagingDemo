@@ -7,6 +7,11 @@
     <data>
 
         <variable
+            name="scalableHolder"
+            type="com.example.mitroshin.pagingdemo.ui.ScalableHolder">
+        </variable>
+
+        <variable
             name="photo"
             type="com.example.mitroshin.pagingdemo.model.entity.Photo">
         </variable>
@@ -17,41 +22,51 @@
         </variable>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_photo_list_height">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            android:onClick="@{() -> listener.onPhotoClick(photo)}"
-            app:imageUrl="@{photo.urls.regular}"
-            app:placeHolder="@{@drawable/ic_image_primary_light_100dp}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <android.support.v7.widget.CardView
-            android:layout_width="@dimen/item_photo_list_user_account_photo_side"
-            android:layout_height="@dimen/item_photo_list_user_account_photo_side"
-            android:layout_marginBottom="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_centerHorizontal="true"
-            app:cardCornerRadius="@dimen/item_photo_list_user_account_photo_half_of_side"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/rootConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{photo.user.profileImage.medium}"
-                app:placeHolder="@{@drawable/ic_account_circle_primary_light_15dp}"
-                />
-        </android.support.v7.widget.CardView>
-    </android.support.constraint.ConstraintLayout>
+                android:onClick="@{() -> listener.onPhotoClick(photo)}"
+                app:scalableHolder="@{scalableHolder}"
+                app:scalableWidth="@{photo.getWidth()}"
+                app:scalableHeight="@{photo.getHeight()}"
+                app:layout_constraintDimensionRatio="1:1"
+                app:imageUrl="@{photo.urls.regular}"
+                app:placeHolder="@{@drawable/ic_image_primary_light_100dp}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/accountImageContainer"
+                android:layout_width="@dimen/item_photo_list_user_account_photo_side"
+                android:layout_height="@dimen/item_photo_list_user_account_photo_side"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_centerHorizontal="true"
+                app:cardCornerRadius="@dimen/item_photo_list_user_account_photo_half_of_side"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/accountImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{photo.user.profileImage.medium}"
+                    app:placeHolder="@{@drawable/ic_account_circle_primary_light_15dp}" />
+            </android.support.v7.widget.CardView>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 </layout>
