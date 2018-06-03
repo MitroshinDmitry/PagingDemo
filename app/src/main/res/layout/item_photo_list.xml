@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -48,25 +48,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/accountImageContainer"
-                android:layout_width="@dimen/item_photo_list_user_account_photo_side"
-                android:layout_height="@dimen/item_photo_list_user_account_photo_side"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_centerHorizontal="true"
-                app:cardCornerRadius="@dimen/item_photo_list_user_account_photo_half_of_side"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/info_line"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_photo_list_user_info_line_height"
+                android:background="@color/transparentWhite60"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <ImageView
-                    android:id="@+id/accountImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    app:imageUrl="@{photo.user.profileImage.medium}"
-                    app:placeHolder="@{@drawable/ic_account_circle_primary_light_15dp}" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/accountImageContainer"
+                    android:layout_width="@dimen/item_photo_list_user_account_photo_side"
+                    android:layout_height="@dimen/item_photo_list_user_account_photo_side"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="16dp"
+                    app:cardCornerRadius="@dimen/item_photo_list_user_account_photo_half_of_side"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/accountImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        app:imageUrl="@{photo.user.profileImage.medium}"
+                        app:placeHolder="@{@drawable/ic_account_circle_primary_light_15dp}" />
+                </android.support.v7.widget.CardView>
+            </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </layout>

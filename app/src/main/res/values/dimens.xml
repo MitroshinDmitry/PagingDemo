@@ -2,6 +2,7 @@
 <resources>
     <dimen name="item_loading_state_height">150dp</dimen>
 
+    <dimen name="item_photo_list_user_info_line_height">60dp</dimen>
     <dimen name="item_photo_list_user_account_photo_side">40dp</dimen>
     <dimen name="item_photo_list_user_account_photo_half_of_side">20dp</dimen>
 </resources>

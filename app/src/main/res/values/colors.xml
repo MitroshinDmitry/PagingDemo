@@ -13,4 +13,6 @@
     <color name="colorDivider">#BDBDBD</color>
 
     <color name="colorBlack">#000000</color>
+
+    <color name="transparentWhite60">#60ffffff</color>
 </resources>
