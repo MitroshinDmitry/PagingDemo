@@ -68,7 +68,7 @@ public class PhotoListFragment extends Fragment
     @Override
     public void onPhotoClick(Photo photo) {
         if (getActivity() != null && getActivity() instanceof Contract) {
-            ((Contract)getActivity()).showPhotoDetails(photo.id);
+            ((Contract)getActivity()).showPhotoDetails(photo.getId());
         }
     }
 
