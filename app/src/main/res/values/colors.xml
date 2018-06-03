@@ -14,5 +14,5 @@
 
     <color name="colorBlack">#000000</color>
 
-    <color name="transparentWhite60">#60ffffff</color>
+    <color name="transparentBlack60">#50000000</color>
 </resources>

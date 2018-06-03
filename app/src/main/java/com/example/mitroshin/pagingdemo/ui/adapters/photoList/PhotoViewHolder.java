@@ -6,9 +6,9 @@ import android.widget.ImageView;
 
 import com.example.mitroshin.pagingdemo.databinding.ItemPhotoListBinding;
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
-import com.example.mitroshin.pagingdemo.ui.ScalableHolder;
+import com.example.mitroshin.pagingdemo.ui.StaggeredContainer;
 
-public class PhotoViewHolder extends RecyclerView.ViewHolder implements ScalableHolder {
+public class PhotoViewHolder extends RecyclerView.ViewHolder implements StaggeredContainer {
 
     private final ItemPhotoListBinding binding;
     private final PhotoListItemListener listener;
@@ -21,7 +21,7 @@ public class PhotoViewHolder extends RecyclerView.ViewHolder implements Scalable
 
     public void bind(Photo photo) {
         binding.setPhoto(photo);
-        binding.setScalableHolder(this);
+        binding.setStaggeredContainer(this);
         binding.setListener(listener);
         binding.executePendingBindings();
     }

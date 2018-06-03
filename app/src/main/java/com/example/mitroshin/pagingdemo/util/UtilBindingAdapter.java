@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintSet;
 import android.widget.ImageView;
 
-import com.example.mitroshin.pagingdemo.ui.ScalableHolder;
+import com.example.mitroshin.pagingdemo.ui.StaggeredContainer;
 import com.squareup.picasso.Picasso;
 
 public class UtilBindingAdapter {
@@ -20,15 +20,15 @@ public class UtilBindingAdapter {
                 .into(view);
     }
 
-    @BindingAdapter({"bind:scalableHolder", "bind:scalableWidth", "bind:scalableHeight"})
+    @BindingAdapter({"bind:staggeredContainer", "bind:scalableWidth", "bind:scalableHeight"})
     public static void setupImageSizes(ImageView view,
-                                       ScalableHolder scalableHolder,
+                                       StaggeredContainer staggeredContainer,
                                        int scalableWidth,
                                        int scalableHeight) {
         ConstraintSet constraintSet = new ConstraintSet();
         String ratio = String.format("%d:%d", scalableWidth, scalableHeight);
-        constraintSet.clone(scalableHolder.getConstraintLayout());
-        constraintSet.setDimensionRatio(scalableHolder.getImageView().getId(), ratio);
-        constraintSet.applyTo(scalableHolder.getConstraintLayout());
+        constraintSet.clone(staggeredContainer.getConstraintLayout());
+        constraintSet.setDimensionRatio(staggeredContainer.getImageView().getId(), ratio);
+        constraintSet.applyTo(staggeredContainer.getConstraintLayout());
     }
 }

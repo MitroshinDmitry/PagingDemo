@@ -5,4 +5,8 @@
     <dimen name="item_photo_list_user_info_line_height">60dp</dimen>
     <dimen name="item_photo_list_user_account_photo_side">40dp</dimen>
     <dimen name="item_photo_list_user_account_photo_half_of_side">20dp</dimen>
+
+    <dimen name="item_photo_list_card_corner_radius">8dp</dimen>
+
+    <integer name="photo_list_column_count">1</integer>
 </resources>

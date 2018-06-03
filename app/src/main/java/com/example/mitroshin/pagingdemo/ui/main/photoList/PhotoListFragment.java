@@ -7,10 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mitroshin.pagingdemo.R;
 import com.example.mitroshin.pagingdemo.databinding.FragmentPhotoListBinding;
 import com.example.mitroshin.pagingdemo.model.entity.Photo;
 import com.example.mitroshin.pagingdemo.ui.adapters.photoList.PhotoListAdapter;
@@ -56,13 +58,19 @@ public class PhotoListFragment extends Fragment
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
 
-        binding.photoList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        binding.photoList.setLayoutManager(
+                new StaggeredGridLayoutManager(
+                        getColumnsCount(),
+                        StaggeredGridLayoutManager.VERTICAL));
         binding.photoList.setAdapter(listAdapter);
     }
 
     private void renderPhotoList(PagedList<Photo> photoList) {
         listAdapter.submitList(photoList);
-//        listAdapter.setPhotoList(photoList);
+    }
+
+    private int getColumnsCount() {
+        return getResources().getInteger(R.integer.photo_list_column_count);
     }
 
     @Override
