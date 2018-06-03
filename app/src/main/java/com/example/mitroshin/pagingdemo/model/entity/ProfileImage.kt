@@ -2,7 +2,7 @@ package com.example.mitroshin.pagingdemo.model.entity
 
 import com.google.gson.annotations.SerializedName
 
-class ProfileImage(
+data class ProfileImage(
         @field:SerializedName("small")
         val small: String,
 

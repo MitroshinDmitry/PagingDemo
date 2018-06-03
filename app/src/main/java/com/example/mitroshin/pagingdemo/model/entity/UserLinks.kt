@@ -2,7 +2,7 @@ package com.example.mitroshin.pagingdemo.model.entity
 
 import com.google.gson.annotations.SerializedName
 
-class UserLinks(
+data class UserLinks(
         @field:SerializedName("self")
         val self: String,
 

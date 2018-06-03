@@ -103,7 +103,7 @@ public class PhotoListAdapter extends PagedListAdapter<Photo, RecyclerView.ViewH
             new DiffUtil.ItemCallback<Photo>() {
         @Override
         public boolean areItemsTheSame(Photo oldItem, Photo newItem) {
-            return oldItem.id.equals(newItem.id);
+            return oldItem.getId().equals(newItem.getId());
         }
 
         @Override

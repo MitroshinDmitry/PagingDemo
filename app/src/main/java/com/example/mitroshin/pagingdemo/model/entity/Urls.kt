@@ -2,7 +2,7 @@ package com.example.mitroshin.pagingdemo.model.entity
 
 import com.google.gson.annotations.SerializedName
 
-class Urls(
+data class Urls(
         @field:SerializedName("raw")
         val raw: String,
 

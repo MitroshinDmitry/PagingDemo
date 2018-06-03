@@ -2,7 +2,7 @@ package com.example.mitroshin.pagingdemo.model.entity
 
 import com.google.gson.annotations.SerializedName
 
-class Photo(
+data class Photo(
         @field:SerializedName("id")
         val id: String,
 

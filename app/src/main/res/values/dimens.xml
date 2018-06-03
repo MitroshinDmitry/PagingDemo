@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="item_photo_list_height">350dp</dimen>
+    <dimen name="item_loading_state_height">150dp</dimen>
 
     <dimen name="item_photo_list_user_account_photo_side">40dp</dimen>
     <dimen name="item_photo_list_user_account_photo_half_of_side">20dp</dimen>
